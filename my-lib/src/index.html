@@ -4,11 +4,51 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
-
+    <style>
+      body{
+        font-family: sans-serif;
+      }
+      .side-nav ul{
+        list-style:none;
+      }
+      .side-nav li{
+        margin: 1rem 0
+      }
+      .side-nav a{
+        text-decoration: none;
+        color:#000;
+      }
+      /*
+      #tooltip{
+        padding: 2rem 0;
+      }
+      */
+    </style>
     <script type="module" src="/build/my-lib.esm.js"></script>
     <script nomodule src="/build/my-lib.js"></script>
   </head>
   <body>
-    <uc-side-drawer title="My Side Bar"></uc-side-drawer>
+    <button>Open side Menu</button>
+    <p>Another paragraph</p>
+    <p>Another paragraph</p>
+    <p>Another paragraph</p>
+    <p>Another paragraph</p>
+    <p>Let's test this new <uc-tooltip id="tooltip" content="This is the tooltip text">Tooltip</uc-tooltip></p>
+    <uc-side-drawer title="My Side Bar">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="/">a Link</a></li>
+          <li><a href="/">Another Link</a></li>
+          <li><a href="/">A third Link</a></li>
+        </ul>
+      </nav>
+    </uc-side-drawer>
+    <script>
+      const sideDrawer = document.querySelector('uc-side-drawer');
+      const button = document.querySelector('button')
+      button.addEventListener('click',()=>{
+        if(!sideDrawer.opened)sideDrawer.open()
+      })
+    </script>
   </body>
 </html>
